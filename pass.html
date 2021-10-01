@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <title>Phrases</title>
+ 
+<body>
+
+<h2>Pass phrase by Varun Kumar Bantu</h2>
+
+<form>
+    <label for="form1_age">Enter the secret phrase </label>
+    <input type ="password" id="sf" name="sf" value="Let me in"> <br>
+
+    <label for="form1_nick">Enter a phrase </label>
+    <input type ="text" id="cf" name="cf"> <br>
+
+    <input type="button" onclick="processPhrase()" value="Check the Phrase">
+</form>
+
+
+<p id="result">This is Varun</p>
+
+<script> 
+
+correct=0
+wrong=0
+
+function processPhrase()
+{
+    S_F=document.getElementById("sf").value
+    C_F=document.getElementById("cf").value
+    out=document.getElementById("result")
+    if(S_F==C_F)
+    {
+        correct=correct+1
+        alert("Access allowed")
+    }
+    else{
+        wrong=wrong+1
+        alert("Access denied")
+    }
+    out.innerHTML="Correct "+correct+" "+"Wrong "+wrong;
+
+}
+</script>
+
+
+</body>
+</html> 
