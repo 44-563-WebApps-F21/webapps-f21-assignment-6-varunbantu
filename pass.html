@@ -1,48 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <title>Phrases</title>
- 
+<title>Phrases</title>
+
 <body>
 
-<h2>Pass phrase by Varun Kumar Bantu</h2>
+    <h2>Pass phrase by Varun Kumar Bantu</h2>
 
-<form>
-    <label for="form1_age">Enter the secret phrase </label>
-    <input type ="password" id="sf" name="sf" value="Let me in"> <br>
+    <form>
+        <label for="form1_age">Enter the secret phrase </label>
+        <input type="password" id="sf" name="sf" value="Let me in"> <br>
 
-    <label for="form1_nick">Enter a phrase </label>
-    <input type ="text" id="cf" name="cf"> <br>
+        <label for="form1_nick">Enter a phrase </label>
+        <input type="text" id="cf" name="cf"> <br>
 
-    <input type="button" onclick="processPhrase()" value="Check the Phrase">
-</form>
+        <input type="button" onclick="processPhrase()" value="Check the Phrase">
+    </form>
 
 
-<p id="result">This is Varun</p>
+    <p id="result">This is Varun</p>
 
-<script> 
+    <script>
 
-correct=0
-wrong=0
+        correct = 0
+        wrong = 0
 
-function processPhrase()
-{
-    S_F=document.getElementById("sf").value
-    C_F=document.getElementById("cf").value
-    out=document.getElementById("result")
-    if(S_F==C_F)
-    {
-        correct=correct+1
-        alert("Access allowed")
-    }
-    else{
-        wrong=wrong+1
-        alert("Access denied")
-    }
-    out.innerHTML="Correct "+correct+" "+"Wrong "+wrong;
+        function processPhrase() {
+            S_F = document.getElementById("sf").value
+            C_F = document.getElementById("cf").value
+            out = document.getElementById("result")
+            if (S_F == C_F) {
+                correct = correct + 1
+                alert("Access allowed")
+            }
+            else {
+                wrong = wrong + 1
+                alert("Access denied")
+            }
+            out.innerHTML = "Correct " + correct + " " + "Wrong " + wrong;
 
-}
-</script>
+        }
+    </script>
+    <div>
+        <img src="Bear.jpg" id="img1" onclick="newImage()" height="200" width="200">
+    </div>
+    <script>
+        usingImage = 1
+        function newImage() {
+            switch (usingImage) {
+                case 1:
+                    document.getElementById("img1").src = "Bear.jpg"
+                    usingImage = usingImage + 1
+                    break
+                case 2:
+                    document.getElementById("img1").src = "Alligator.jpg"
+                    usingImage = usingImage + 1
+                    break
+                case 3:
+                document.getElementById("img1").src = "Nightingale.jpg"
+                    usingImage = 1
+                    break
+
+            }
+        }
+    </script>
 
 
 </body>
-</html> 
+
+</html>
