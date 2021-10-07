@@ -1,36 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <title>My computing</title>
- 
+<title>My computing</title>
+
 <body>
 
-<h2>Varun Kumar Bantu computes</h2>
+    <h2>Varun Kumar Bantu computes</h2>
 
-<form>
-   <input type="number" id="com" value="10">
-   <label for="com">Enter a base</label><br>
+    <form>
+        <label for="base">Enter a base</label>
+        <input type="number" id="base" value="10"><br>
+        
+        <label for="exponent">Enter an exponent</label>
+        <input type="number" id="exponent" value="2"><br>
+        
+        <input type="button" onclick="powers()" value="Compute">
+    </form>
 
-   <input type="number" id="com1" value="2">
-   <label for="com">Enter an exponent</label><br>
-   <input type="button" onclick="powers()" value="Compute">
-</form>
+    <p id="result">The result is : </p>
 
+    <script>
 
-<p id="result">The result is :</p>
+        function powers() {
+            result = " "
+            B = document.getElementById("base").value
+            D = document.getElementById("exponent").value
+            out = document.getElementById("result")
+            for (i = 1; i <= D; i++) {
+                result = result + Math.pow(B, i) + " "
+                out.innerHTML = "Powers of "+B+" for exponent "+D+" is: "+result;
+            }
+        }
+    </script>
+    <form>
+        <input type="radio" id="b1" value="plus" name="cal" onclick="processRadio()">
+        <label for="b1">+</label><br>
+        <input type="radio" id="b2" value="minus" name="cal" onclick="processRadio()">
+        <label for="b1">-</label><br>
+        <input type="radio" id="b3" value="times" name="cal" onclick="processRadio()">
+        <label for="b1">*</label><br>
+        <input type="radio" id="b4" value="divide" name="cal" onclick="processRadio()">
+        <label for="b1">/</label><br>
+    </form>
+    <p id="result1">The result is : </p>
+    <script>
+        function processRadio(){
+            result1=""
+            C = document.getElementById("base").value;
+            T = document.getElementById("exponent").value;
+            E = document.getElementById("result1")
+            if(document.getElementById("b1").checked)
+                E.innerHTML =  "Sum of "+C+" and "+T+" is : "+(Number(C)+Number(T));
+            if(document.getElementById("b2").checked)
+                E.innerHTML =  "Minus of "+C+" and "+T+" is : "+(C-T);
+            if(document.getElementById("b3").checked)
+                E.innerHTML =  "Times of "+C+" and "+T+" is : "+(C*T);
+            if(document.getElementById("b4").checked)
+                E.innerHTML =  "Divide of "+C+" and "+T+" is : "+(C/T);
+        }
+    </script>
 
-<script> 
-
-function powers(){
-    result =" "
-    B=document.getElementById("com").value
-    D=document.getElementById("com1").value
-    out = document.getElementById("result")
-    for(i=1;i<=D;i++){
-        result = result+Math.pow(B,i)+" "
-        out.innerHTML=result;
-    }
-}
-</script>
 
 </body>
-</html> 
+
+</html>
