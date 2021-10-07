@@ -20,7 +20,7 @@
         <label for="form1_nick">Enter a phrase </label>
         <input type="text" id="cf" name="cf"> <br><br>
 
-        <input type="button" class="btn btn-primary" onclick="processPhrase()" value="Check the Phrase">
+        <input type="button" id="bt" class="btn btn-primary" onclick="processPhrase()" value="Check the Phrase">
     </form><br>
 
 
@@ -30,27 +30,36 @@
 
         correct = 0
         wrong = 0
-
+        c=0
         function processPhrase() {
+            console.log("Getting form values")
             S_F = document.getElementById("sf").value
             C_F = document.getElementById("cf").value
             out = document.getElementById("result")
             if (S_F == C_F) {
                 correct = correct + 1
+                
                 alert("Access allowed")
+                c=0;
             }
             else {
                 wrong = wrong + 1
+               
                 alert("Access denied")
+                c=c+1;
+                if(c>=3){
+                    document.getElementById("bt").onclick=accountlocked();
+                }
             }
             out.innerHTML = "Correct " + correct + " " + "Wrong " + wrong;
-
+        }
+        function accountlocked(){
+            alert("Account Locked")
         }
     </script>
     <div>
         <img src="Bear.jpg" id="img1" onclick="newImage()" height="200" width="200">
     </div>
-</div>
     <script>
         usingImage = 1
         function newImage() {
